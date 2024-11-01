@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atlancia Worldwide</title>
+    <link rel="icon" href="images/logo.png" sizes="32x32" type="image/png">
+    <link rel="apple-touch-icon" href="images/logo.png">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        /* Fullscreen video styling */
+        body {
+            margin: 0; /* Remove default body margin */
+            overflow: hidden; /* Prevent scrolling */
+        }
+
+        .welcome-video {
+            position: absolute; /* Position video absolutely */
+            top: 0; /* Align to top */
+            left: 0; /* Align to left */
+            width: 100vw; /* Full viewport width */
+            height: 100vh; /* Full viewport height */
+            object-fit: cover; /* Maintain aspect ratio and cover */
+        }
+
+        /* Hide the video based on screen size */
+        .video-large {
+            display: none;
+        }
+
+        .video-small {
+            display: block;
+        }
+
+        @media (min-width: 768px) {
+            .video-large {
+                display: block;
+            }
+
+            .video-small {
+                display: none;
+            }
+        }
+    </style>
+    <script>
+        function redirectToHome() {
+            window.location.href = 'home.html';
+        }
+
+        function playVideo() {
+            const largeVideo = document.getElementById('largeVideo');
+            const smallVideo = document.getElementById('smallVideo');
+
+            // Detect screen size and play the respective video
+            if (window.innerWidth >= 768) {
+                largeVideo.style.display = "block";
+                largeVideo.play();
+                largeVideo.onended = redirectToHome; // Redirect after video ends
+            } else {
+                smallVideo.style.display = "block";
+                smallVideo.play();
+                smallVideo.onended = redirectToHome; // Redirect after video ends
+            }
+        }
+    </script>
+</head>
+
+<body class="bg-gray-600 flex items-center justify-center min-h-screen" onload="playVideo()">
+
+    <!-- Video container -->
+    <div class="text-center">
+        <!-- Large screen video (shown for screen width 768px and above) -->
+        <video id="largeVideo" class="welcome-video video-large" style="display: none;" playsinline muted>
+            <source src="videos/large screen.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+
+        <!-- Small screen video (shown for screen width below 768px) -->
+        <video id="smallVideo" class="welcome-video video-small" style="display: none;" playsinline muted>
+            <source src="videos/small screen.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
+</body>
+
+</html>

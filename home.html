@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atlancia Worldwide</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://cdn.tailwindcss.com" rel="stylesheet">
+    <link rel="icon" type="image/png" href="images/logo.png" sizes="32x32">
+    <style>
+        /* Optional: Add transition effects for better UX */
+        .menu-transition {
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+
+        /* Style for the background video */
+        .bg-video {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+            /* Place video behind other content */
+            opacity: 0.5;
+            /* Adjust opacity here */
+        }
+
+        /* To ensure the content is not obscured by the video */
+        .content {
+            position: relative;
+            z-index: 10;
+            /* Bring content above video */
+        }
+
+        /* Define fade-in-up animation */
+        @keyframes fade-in-up {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-gray-100">
+
+    <video class="bg-video" autoplay muted loop>
+        <source src="videos/Bg video blue.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <div class="content">
+        <nav class="bg-black shadow">
+            <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
+                <div class="flex justify-between h-24 items-center">
+                    <div class="flex">
+                        <div class="flex-shrink-0">
+                            <a href="#"><img class="h-28 mr-12 mt-4" src="images/logo.png" alt="Atlancia Worldwide"></a>
+                        </div>
+                    </div>
+                    <div class="hidden md:flex md:space-x-4 md:text-xs md:space-y-2 md:mr-4 lg:text-lg lg:space-x-12">
+                        <a href=""></a>
+                        <a href="#" class="text-gray-300 mt-4 hover:text-blue-500">Home</a>
+                        <a href="#about" class="text-gray-300 mt-4 hover:text-blue-700">About Us</a>
+                        <a href="#product" class="text-gray-300 mt-4 hover:text-blue-700">Products</a>
+                        <a href="#gallery" class="text-gray-300 mt-4 hover:text-blue-700">Gallery</a>
+                        <a href="#why-us" class="text-gray-300 mt-4 hover:text-blue-700">Why Us</a>
+                        <a href="#contact-us" class="text-gray-300 mt-4 hover:text-blue-700">Contact Us</a>
+                    </div>
+                    <div class="hidden md:flex space-x-4">
+                        <a href="https://www.linkedin.com/in/atlancia-worldwide-4656b4321/" target="_blank"
+                            class="text-gray-300 hover:text-blue-700" title="LinkedIn"><i
+                                class="fab fa-linkedin"></i></a>
+                        <a href="https://www.instagram.com/atlancia.worldwide/" target="_blank"
+                            class="text-gray-300 hover:text-blue-700" title="Instagram"><i
+                                class="fab fa-instagram"></i></a>
+                        <a href="https://www.instagram.com/atlancia.worldwide/" target="_blank"
+                            class="text-gray-300 hover:text-blue-700" title="Facebook"><i
+                                class="fab fa-facebook-f"></i></a>
+                        <a href="mailto:atlancia.worldwide@gmail.com" target="_blank"
+                            class="text-gray-300 hover:text-blue-700" title="Email">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                        <a href="https://wa.me/7778888578" target="_blank" class="text-gray-300 hover:text-blue-500"
+                            title="WhatsApp">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                        <a href="tel:+91 7778888578" class="text-gray-300 hover:text-blue-500" title="Call">
+                            <i class="fas fa-phone"></i>
+                        </a>
+                    </div>
+                    <div id="menu-button" class="-mr-2 flex md:hidden">
+                        <button
+                            class="inline-flex items-center justify-center p-2 rounded-md text-gray-300 hover:text-blue-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-blue-500"
+                            aria-expanded="false" aria-controls="mobile-menu">
+                            <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M4 6h16M4 12h16m-7 6h7"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="mobile-menu" class="hidden md:hidden bg-gray-900">
+                <div class="px-8 pt-2 pb-3 space-y-1">
+                    <a href="#" class="block text-gray-300 hover:text-blue-500">Home</a>
+                    <a href="#about" class="block text-gray-300 hover:text-blue-700">About Us</a>
+                    <a href="#product" class="block text-gray-300 hover:text-blue-700">Products</a>
+                    <a href="#gallery" class="block text-gray-300 hover:text-blue-700">Gallery</a>
+                    <a href="#why-us" class="block text-gray-300 hover:text-blue-700">Why Us</a>
+                    <a href="#contact-us" class="block text-gray-300 hover:text-blue-700">Contact Us</a>
+
+                    <!-- Social Media Icons -->
+                    <div class="flex space-x-4 mt-4">
+                        <a href="https://www.linkedin.com/in/atlancia-worldwide-4656b4321/"
+                            class="text-gray-300 hover:text-blue-500" title="LinkedIn"><i
+                                class="fab fa-linkedin"></i></a>
+                        <a href="https://www.instagram.com/atlancia.worldwide/"
+                            class="text-gray-300 hover:text-blue-500" title="Instagram"><i
+                                class="fab fa-instagram"></i></a>
+                        <a href="https://www.instagram.com/atlancia.worldwide/"
+                            class="text-gray-300 hover:text-blue-500" title="Facebook"><i
+                                class="fab fa-facebook-f"></i></a>
+                        <a href="mailto:atlancia.worldwide@gmail.com" class="text-gray-300 hover:text-blue-500"
+                            title="Email">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                        <a href="https://wa.me/7778888578" class="text-gray-300 hover:text-blue-500" title="WhatsApp">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                        <a href="tel:+91 7778888578" class="text-gray-300 hover:text-blue-500" title="Call">
+                            <i class="fas fa-phone"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <!-- Article Section -->
+    <article class="max-w-4xl mx-auto px-4 py-8 md:mt-36">
+        <h1 class="text-xl font-bold mb-4 text-center md:text-center lg:text-center lg:text-4xl">We are Certified
+            Exporters</h1>
+        <h2 class="text-2xl mb-4 text-center md:text-center lg:text-center text-lg">
+            Fabric Export Services<br>
+            <span class="text-blue-700 font-bold text-lg md:text-2xl">Creative & Professional</span>
+        </h2>
+        <p class="text-sm mb-4 text-justify md:text-lg lg:text-lg">
+            Atlancia Worldwide is a leading name in the export of premium clothing-quality fabrics. We specialize in
+            sourcing and delivering top-notch materials to meet the diverse needs of global clothing manufacturers. With
+            a steadfast commitment to excellence, we ensure our fabrics adhere to stringent industry standards, offering
+            superior performance and durability for apparel and related applications. Built on principles of integrity
+            and quality, Atlancia Worldwide is devoted to bolstering the global fabric industry with dependable
+            materials that enhance the resilience and longevity of projects, regardless of size.
+        </p>
+        <div class="flex justify-center space-x-4 mt-6">
+            <a href="#product"
+                class="text-black text-lg font-bold py-2 px-4 rounded hover:bg-blue-700 transition duration-3000">Products</a>
+            <a href="#gallery"
+                class="text-black text-lg font-bold py-2 px-4 rounded hover:bg-blue-700 transition duration-3000">Gallery</a>
+        </div>
+    </article>
+    </div>
+
+
+
+    <!-- ABOUT US SECTION -->
+    <section class="bg-gray-100 py-16" id="about">
+        <div class="container mx-auto px-4 flex flex-col lg:flex-row items-center">
+            <!-- Image Section -->
+            <div class="w-full lg:w-1/2 flex justify-center lg:justify-start mb-8 lg:mb-0">
+                <img src="images/about.jpg" alt="Atlancia Worldwide About Us"
+                    class="rounded-lg shadow-lg w-full h-80 lg:h-auto object-cover">
+            </div>
+
+            <!-- Description Section -->
+            <div class="w-full lg:w-1/2 lg:pl-12">
+                <h2 class="text-lg md:text-3xl font-bold mb-4 text-blue-700">About Atlancia Worldwide</h2>
+                <p class="text-gray-600 leading-relaxed mb-6 text-sm">
+                    Atlancia Worldwide is a leader in fabric exports, specializing in top-grade, clothing-quality
+                    materials that meet the demands of global clothing manufacturers. Our commitment to quality,
+                    creativity, and professionalism sets us apart in the industry.
+                </p>
+                <p class="text-gray-600 leading-relaxed mb-6 text-sm">
+                    With a focus on durability and excellence, we adhere to the highest standards, ensuring that each
+                    fabric enhances the longevity and resilience of any application. Atlancia Worldwide is your trusted
+                    partner in sourcing premium fabrics that meet rigorous industry expectations.
+                </p>
+                <p class="text-gray-600 leading-relaxed mb-6 text-sm">
+                    Our company prides itself on a meticulous approach to quality control, ensuring that every shipment
+                    not only meets but exceeds international standards. We are passionate about creativity, constantly
+                    innovating with new textures, patterns, and fabric technologies that align with the latest fashion
+                    trends and industry requirements.
+                </p>
+                <!-- <p class="text-gray-600 leading-relaxed mb-6 text-sm">
+                    Through professionalism, reliability, and a customer-centric approach, Atlancia Worldwide has established itself as a trusted partner across continents, with a commitment to sustainable practices and ethical sourcing. Our mission is to empower our clients with high-quality fabrics that bring their visions to life while supporting a global industry that values quality, innovation, and integrity.
+                </p> -->
+                <a href="#why-us"
+                    class="text-black text-lg hover:bg-blue-700 font-bold py-2 px-6 rounded transition duration-300000 md:ml-52 ml-16 sm:ml-36">
+                    Why Us
+                </a>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- PRODUCT SECTION -->
+    <section class="bg-sky-700 py-16" id="product">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center text-blue-700 mb-10">Our Products</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Product Card 1 -->
+                <div
+                    class="bg-white border rounded-lg shadow-lg overflow-hidden transform transition duration-500 hover:scale-105 cursor-pointer">
+                    <img src="images/fabric images/Cotton Edited.png" alt="Cotton Fabric Export"
+                        class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Premium Cotton Fabric</h3>
+                        <p class="text-gray-600 mb-4">
+                            High-quality cotton fabric, ideal for premium garment manufacturing.
+                        </p>
+                        <!-- <a href="#" class="text-blue-500 font-semibold hover:text-blue-700 transition duration-300">
+                            View Details
+                        </a> -->
+                    </div>
+                </div>
+                <!-- Product Card 2 -->
+                <div
+                    class="bg-white border rounded-lg shadow-lg overflow-hidden transform transition duration-500 hover:scale-105 cursor-pointer">
+                    <img src="images/fabric images/Polyester Edited.png" alt="Polyester Fabric Export"
+                        class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Durable Polyester Blend</h3>
+                        <p class="text-gray-600 mb-4">
+                            A strong, versatile polyester blend perfect for outerwear and uniforms.
+                        </p>
+                        <!-- <a href="#" class="text-blue-500 font-semibold hover:text-blue-700 transition duration-300">
+                            View Details
+                        </a> -->
+                    </div>
+                </div>
+                <!-- Product Card 3 -->
+                <div
+                    class="bg-white border rounded-lg shadow-lg overflow-hidden transform transition duration-500 hover:scale-105 cursor-pointer">
+                    <img src="images/fabric images/linen.jpeg" alt="Linen Fabric Export"
+                        class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Linen Fabric</h3>
+                        <p class="text-gray-600 mb-4">
+                            Sustainable, eco-friendly linen for high-quality, natural garments.
+                        </p>
+                        <!-- <a href="#" class="text-blue-500 font-semibold hover:text-blue-700 transition duration-300">
+                            View Details
+                        </a> -->
+                    </div>
+                </div>
+                <!-- Product Card 4 -->
+                <div
+                    class="bg-white border rounded-lg shadow-lg overflow-hidden transform transition duration-500 hover:scale-105 cursor-pointer">
+                    <img src="images/fabric images/silk.png" alt="Silk Fabric Export" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Silk Fabric</h3>
+                        <p class="text-gray-600 mb-4">
+                            Sustainable, eco-friendly silk for high-quality, natural garments.
+                        </p>
+                        <!-- <a href="#" class="text-blue-500 font-semibold hover:text-blue-700 transition duration-300">
+                            View Details
+                        </a> -->
+                    </div>
+                </div>
+                <!-- Product Card 5 -->
+                <div
+                    class="bg-white border rounded-lg shadow-lg overflow-hidden transform transition duration-500 hover:scale-105 cursor-pointer">
+                    <img src="images/fabric images/satin.jpg" alt="Satin Fabric Export"
+                        class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Satin Fabric</h3>
+                        <p class="text-gray-600 mb-4">
+                            Sustainable, eco-friendly satin for high-quality, natural garments.
+                        </p>
+                        <!-- <a href="#" class="text-blue-500 font-semibold hover:text-blue-700 transition duration-300">
+                            View Details
+                        </a> -->
+                    </div>
+                </div>
+                <!-- Product Card 6 -->
+                <div
+                    class="bg-white border rounded-lg shadow-lg overflow-hidden transform transition duration-500 hover:scale-105 cursor-pointer">
+                    <img src="images/fabric images/Viscose Edited.png" alt="Viscose Fabric Export"
+                        class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Viscose Fabric</h3>
+                        <p class="text-gray-600 mb-4">
+                            Sustainable, eco-friendly viscose for high-quality, natural garments.
+                        </p>
+                        <!-- <a href="#" class="text-blue-500 font-semibold hover:text-blue-700 transition duration-300">
+                            View Details
+                        </a> -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- "Many Other Fabrics" Text -->
+            <div class="mt-12 text-center">
+                <p class="text-lg md:text-2xl font-bold text-blue-700">AND MANY OTHER FABRICS</p>
+                <a href="#contact-us" class="mt-4 inline-block">
+                    <button
+                        class="px-4 py-3 text-black text-lg rounded font-bold hover:bg-blue-700 transform transition duration-300">
+                        Contact Us
+                    </button>
+                </a>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- GALLERY SECTION -->
+    <section class="bg-gray-100 py-16" id="gallery">
+        <div class="container mx-auto px-4">
+            <h2 class="text-lg md:text-3xl font-bold text-center text-blue-700 mb-10">Industries we Serve</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Gallery Image 1 -->
+                <div
+                    class="gallery-item opacity-0 transform translate-y-10 transition-opacity duration-[4000ms] transition-transform duration-[4000ms]">
+                    <img src="images/industry/clothing idustry.jpg" alt="Clothing Fabric Exporters"
+                        class="w-full h-48 md:w-full md:h-80 object-cover rounded-lg shadow-lg cursor-pointer">
+                </div>
+                <!-- Gallery Image 2 -->
+                <div
+                    class="gallery-item opacity-0 transform translate-y-10 transition-opacity duration-[4000ms] transition-transform duration-[4000ms]">
+                    <img src="images/industry/medical scrub.jpg" alt="Medical Scrub Fabric Exporters"
+                        class="w-full h-48 md:w-full md:h-80 object-cover rounded-lg shadow-lg cursor-pointer">
+                </div>
+                <!-- Gallery Image 3 -->
+                <div
+                    class="gallery-item opacity-0 transform translate-y-10 transition-opacity duration-[4000ms] transition-transform duration-[4000ms]">
+                    <img src="images/industry/sports wear.jpg" alt="Sports Wear Fabric Exporters"
+                        class="w-full h-48 md:w-full md:h-80 object-cover rounded-lg shadow-lg cursor-pointer">
+                </div>
+                <!-- Gallery Image 4 -->
+                <div
+                    class="gallery-item opacity-0 transform translate-y-10 transition-opacity duration-[4000ms] transition-transform duration-[4000ms]">
+                    <img src="images/industry/sarree.jpg" alt="Sarree Fabric Exporters"
+                        class="w-full h-48 md:w-full md:h-80 object-cover rounded-lg shadow-lg cursor-pointer">
+                </div>
+                <!-- Gallery Image 5 -->
+                <div
+                    class="gallery-item opacity-0 transform translate-y-10 transition-opacity duration-[4000ms] transition-transform duration-[4000ms]">
+                    <img src="images/industry/bed sheets.jpg" alt="Bed Sheets Fabric Exporters"
+                        class="w-full h-48 md:w-full md:h-80 object-cover rounded-lg shadow-lg cursor-pointer">
+                </div>
+                <!-- Gallery Image 6 -->
+                <div
+                    class="gallery-item opacity-0 transform translate-y-10 transition-opacity duration-[4000ms] transition-transform duration-[4000ms]">
+                    <img src="images/industry/military uniforms.jpeg" alt="Military Uniforms Fabric Exporters"
+                        class="w-full h-48 md:w-full md:h-80 object-cover rounded-lg shadow-lg cursor-pointer">
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- WHY US SECTION -->
+    <section class="bg-sky-500 py-16" id="why-us">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center text-blue-700 mb-10">Why Choose Us</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Feature 1 -->
+                <div
+                    class="flex flex-col items-center text-center p-6 bg-sky-100 rounded-lg shadow-xl border-white border-2 transform transition duration-500 hover:scale-105 cursor-pointer">
+                    <img src="images/why us/quality.png" alt="High Quality" class="w-48 h-32 mb-4 rounded-lg">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">High-Quality Materials</h3>
+                    <p class="text-white">
+                        We offer only premium materials to ensure top-notch product quality and customer satisfaction.
+                    </p>
+                </div>
+                <!-- Feature 2 -->
+                <div
+                    class="flex flex-col items-center text-center p-6 bg-sky-100 rounded-lg shadow-xl border-white border-2 transform transition duration-500 hover:scale-105 cursor-pointer">
+                    <img src="images/why us/sustainable.jpg" alt="Sustainable" class="w-40 h-36 mb-4 rounded-lg">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">Sustainable Practices</h3>
+                    <p class="text-white">
+                        Our fabrics are sourced and produced with eco-friendly practices to support a greener planet.
+                    </p>
+                </div>
+                <!-- Feature 3 -->
+                <div
+                    class="flex flex-col items-center text-center p-6 bg-sky-100 rounded-lg shadow-xl border-white border-2 transform transition duration-500 hover:scale-105 cursor-pointer">
+                    <img src="images/why us/on time.jpg" alt="Innovation" class="w-40 h-36 mb-4 rounded-lg">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">Always On Time</h3>
+                    <p class="text-white">
+                        Stay ahead of trends with our innovative fabric designs that offer both style and durability.
+                    </p>
+                </div>
+                <!-- Feature 4 -->
+                <div
+                    class="flex flex-col items-center text-center p-6 bg-sky-100 rounded-lg shadow-xl border-white border-2 transform transition duration-500 hover:scale-105 cursor-pointer">
+                    <img src="images/why us/customizable fabric.png" alt="Customizable"
+                        class="w-40 h-32 mb-4 rounded-lg">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">Customizable Options</h3>
+                    <p class="text-white">
+                        We provide customizable fabric options to meet your unique needs and preferences.
+                    </p>
+                </div>
+                <!-- Feature 5 -->
+                <div
+                    class="flex flex-col items-center text-center p-6 bg-sky-100 rounded-lg shadow-xl border-white border-2 transform transition duration-500 hover:scale-105 cursor-pointer">
+                    <img src="images/why us/customer support.png" alt="Customer Support" class="w-36 h-32 mb-4">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">Dedicated Support</h3>
+                    <p class="text-white">
+                        Our team is here to assist you at every step, ensuring a smooth experience from order to
+                        delivery.
+                    </p>
+                </div>
+                <!-- Feature 6 -->
+                <div
+                    class="flex flex-col items-center text-center p-6 bg-sky-100 rounded-lg shadow-xl border-white border-2 transform transition duration-500 hover:scale-105 cursor-pointer">
+                    <img src="images/why us/affordable price.png" alt="Affordable Pricing" class="w-36 h-32 mb-4">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">Affordable Pricing</h3>
+                    <p class="text-white">
+                        Enjoy high-quality fabrics at competitive prices, tailored to fit your budget.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+    <!-- CONTACT SECTION -->
+    <section class="bg-gray-800 text-white py-12" id="contact-us">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Left Side: Company Info -->
+                <div>
+                    <h3 class="text-2xl font-bold mb-2 text-blue-700">Atlancia Worldwide</h3>
+                    <p class="text-yellow-300 mb-4 text-sm">"We believe in long and sustainable business"</p>
+                    <p class="text-gray-300 text-sm">
+                        We are dedicated to providing the highest quality products to meet all your needs. Our focus on
+                        sustainability, innovation, and customer satisfaction sets us apart in the industry.
+                    </p>
+                </div>
+
+                <!-- Middle: Quick Links & Contact Info -->
+                <div>
+                    <h3 class="text-xl md:text-2xl font-bold mb-4">Quick Links</h3>
+                    <ul class="mb-6 space-y-2">
+                        <li><a href="#" class="hover:text-blue-700 transition text-sm md:text-lg">Home</a></li>
+                        <li><a href="#product" class="hover:text-blue-700 transition text-sm md:text-lg">Product</a></li>
+                        <li><a href="#gallery" class="hover:text-blue-700 transition text-sm md:text-lg">Gallery</a></li>
+                    </ul>
+                    <p><span class="font-semibold text-sm md:text-lg">Email :-</span> <a href="mailto:info@yourcompany.com"
+                            class="hover:text-blue-700 transition text-sm md:text-lg">atlancia.worldwide@gmail.com</a></p>
+                    <p><span class="font-semibold text-sm md:text-lg">Phone :-</span> <a href="tel:+917778888578"
+                            class="hover:text-blue-700 transition text-sm md:text-lg">+91 77788 88578</a></p>
+                    <p><span class="font-semibold text-sm md:text-lg">Address :-</span> Surat Gujarat India</p>
+                </div>
+
+                <!-- Right Side: Follow Us -->
+                <div>
+                    <h3 class="text-xl md:text-2xl font-bold mb-4">Follow Us</h3>
+                    <div class="flex space-x-4">
+                        <!-- Replace # with actual social media/contact links -->
+                        <a href="https://www.instagram.com/atlancia.worldwide/" target="_blank" class="hover:text-blue-700 transition">
+                            <i class="fab fa-facebook-f text-sm"></i>
+                        </a>
+                        <a href="https://www.instagram.com/atlancia.worldwide/" target="_blank" class="hover:text-blue-700 transition">
+                            <i class="fab fa-instagram text-sm"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/atlancia-worldwide-4656b4321/" target="_blank" class="hover:text-blue-700 transition">
+                            <i class="fab fa-linkedin-in text-sm"></i>
+                        </a>
+                        <!-- WhatsApp -->
+                        <a href="https://wa.me/7778888578" target="_blank" class="hover:text-blue-700 transition">
+                            <i class="fab fa-whatsapp text-sm"></i>
+                        </a>
+                        <!-- Email -->
+                        <a href="mailto:atlancia.worldwide@gmail.com" class="hover:text-blue-700 transition">
+                            <i class="fas fa-envelope text-sm"></i>
+                        </a>
+                        <!-- Google Business (can use Google icon) -->
+                        <a href="https://g.page/your-google-business-link" target="_blank"
+                            class="hover:text-blue-700 transition">
+                            <i class="fab fa-google text-sm"></i>
+                        </a>
+                        <!-- Phone -->
+                        <a href="tel:+917778888578" class="hover:text-blue-700 transition">
+                            <i class="fas fa-phone text-sm"></i>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+
+
+    <!-- JAVASCRIPT CODE -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const menuButton = document.getElementById('menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const menuItems = document.querySelectorAll('.menu-item');
+
+            // Toggle mobile menu visibility
+            menuButton.addEventListener('click', (event) => {
+                mobileMenu.classList.toggle('hidden');
+                event.stopPropagation(); // Prevent the menu from closing immediately after opening
+            });
+
+            // Close the mobile menu when clicking outside of it
+            document.addEventListener('click', (event) => {
+                const isClickInsideMenu = mobileMenu.contains(event.target) || menuButton.contains(event.target);
+                if (!isClickInsideMenu && !mobileMenu.classList.contains('hidden')) {
+                    mobileMenu.classList.add('hidden');
+                }
+            });
+
+            // Close mobile menu when clicking a menu item
+            menuItems.forEach(item => {
+                item.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                });
+            });
+        });
+
+        // Intersection Observer for animations on scroll
+        document.addEventListener("DOMContentLoaded", function () {
+            const observerOptions = {
+                threshold: 0.9 // Trigger animation when 30% of the item is visible
+            };
+            const galleryItems = document.querySelectorAll(".gallery-item");
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.remove("opacity-0", "translate-y-10");
+                        entry.target.classList.add("opacity-100", "translate-y-0");
+                        observer.unobserve(entry.target); // Unobserve once animated
+                    }
+                });
+            }, observerOptions);
+
+            galleryItems.forEach(item => observer.observe(item));
+        });
+    </script>
+
+</body>
+
+</html>
